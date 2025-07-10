@@ -1,7 +1,5 @@
-import express, { Request, Response } from 'express';
 import dotenv from 'dotenv';
 import { createClient } from 'redis';
-import cors from 'cors';
 
 import { logger } from './utils/logger';
 import { Task, TaskStatus } from './domains/task/model';
