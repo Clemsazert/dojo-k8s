@@ -26,6 +26,15 @@ redisClient.connect().catch(logger.error);
 app.use(express.json());
 app.use(cors({ origin: '*' }));
 
+app.use((req: Request, _, next) => {
+  if (req.method === 'POST') {
+    logger.info(`[${req.method}] ${req.url} - body: ${JSON.stringify(req.body)}`);
+  } else {
+    logger.info(`[${req.method}] ${req.url}`);
+  }
+  next();
+});
+
 app.get('/healthcheck', (_: Request, response: Response) => {
   response.status(200).json({ status: 'UP' });
 });
