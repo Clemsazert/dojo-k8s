@@ -1,6 +1,7 @@
 import express, { Request, Response } from 'express';
 import dotenv from 'dotenv';
 import { createClient } from 'redis';
+import cors from 'cors';
 
 import { logger } from './utils/logger';
 import { listTasks, saveTask } from './domains/task/persistance';
@@ -23,6 +24,7 @@ const redisClient = createClient({
 redisClient.connect().catch(logger.error);
 
 app.use(express.json());
+app.use(cors({ origin: '*' }));
 
 app.get('/healthcheck', (_: Request, response: Response) => {
   response.status(200).json({ status: 'UP' });
