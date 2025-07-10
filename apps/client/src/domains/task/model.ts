@@ -7,4 +7,5 @@ export type Task = {
   name: string;
   creationDate: Date;
   status: TaskStatus;
+  processingDuration?: number;
 };
