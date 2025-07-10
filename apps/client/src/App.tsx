@@ -7,7 +7,7 @@ import type { Task } from "./domains/task/model";
 
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:8000";
 
-const fetchTasks = async (): Promise<Task> => {
+const fetchTasks = async (): Promise<Task[]> => {
   return fetch(`${BACKEND_URL}/task`).then((res) => res.json());
 };
 
@@ -56,8 +56,8 @@ function App() {
       <h2>Tasks</h2>
       <button onClick={() => setModalOpen(true)}>Create Task</button>
       {modalOpen && (
-        <div className="modal-backdrop">
-          <div className="modal">
+        <div>
+          <div>
             <h3>Create a new task</h3>
             <input
               type="text"
@@ -77,7 +77,10 @@ function App() {
           {tasks.map((task: Task) => (
             <li key={task.id}>
               <strong>{task.name}</strong> - {task.status} -{" "}
-              {new Date(task.creationDate).toLocaleString()}
+              {new Date(task.creationDate).toLocaleString()} -{" "}
+              {task.processingDuration && (
+                <>processed in {Math.round(task.processingDuration)}ms</>
+              )}
             </li>
           ))}
         </ul>
