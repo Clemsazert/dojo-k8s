@@ -17,7 +17,7 @@ spec:
           restartPolicy: OnFailure
           containers:
             - name: cleaner
-              image: task-manager/cleaner:v0.0.0
+              image: task-manager/cleaner:v0.1.0
               imagePullPolicy: Never
               envFrom:
                 - configMapRef:

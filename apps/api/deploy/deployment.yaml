@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: api
-          image: task-manager/api:v0.0.0
+          image: task-manager/api:v0.1.0
           imagePullPolicy: Never
           ports:
             - containerPort: 8000
