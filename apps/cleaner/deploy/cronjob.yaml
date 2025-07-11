@@ -1,0 +1,24 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: cleaner
+spec:
+  schedule: '*/5 * * * *'
+  successfulJobsHistoryLimit: 0
+  failedJobsHistoryLimit: 1
+  jobTemplate:
+    spec:
+      ttlSecondsAfterFinished: 60
+      template:
+        metadata:
+          labels:
+            name: cleaner
+        spec:
+          restartPolicy: OnFailure
+          containers:
+            - name: cleaner
+              image: task-manager/cleaner:v0.0.0
+              imagePullPolicy: Never
+              envFrom:
+                - configMapRef:
+                    name: cleaner-env
