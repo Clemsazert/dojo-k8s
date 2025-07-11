@@ -21,7 +21,7 @@ redisClient.connect().catch(console.error);
 
 async function processTaskQueue() {
   while (true) {
-    const taskJson = await redisClient.rPop('tasks:list');
+    const taskJson = await redisClient.lPop('tasks:list');
     if (taskJson) {
       const task: Task = JSON.parse(taskJson);
       logger.info(`Processing task: ${task.id} (${task.name})`);
