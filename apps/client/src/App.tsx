@@ -97,6 +97,8 @@ function App() {
         }}
       >
         <p>This task manager allows you to create new tasks one by one.</p>
+        <p>You must provide a task name in this case.</p>
+        <p>You can also create 10 tasks at once.</p>
         <p>Tasks will be processed as soon as a worker is available.</p>
         <p>
           When the processing is finished, the task switches to status "done"
