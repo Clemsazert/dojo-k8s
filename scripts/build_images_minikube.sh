@@ -63,7 +63,7 @@ for path in "${SERVICES_PATHS[@]}"; do
 done
 
 # Navigate back to initial directory
-cd scripts
+cd ../scripts
 
 # Unset env variable needed to use minikube docker daemon
 minikube docker-env --unset
