@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: worker-env
+  labels:
+    app: worker
+data:
+  REDIS_USER: 'default'
+  REDIS_PASSWORD: 'redispw'
+  REDIS_HOST: 'redis'
+  REDIS_PORT: '6379'
