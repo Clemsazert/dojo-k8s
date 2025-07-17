@@ -3,7 +3,7 @@
 # Initialize variables with default values
 TAG="v0.0.0"
 IMAGE_NAME_PREFIX="task-manager"
-SERVICES="api,worker,client"
+SERVICES="api,worker,client,cleaner"
 
 # Parse command-line options
 while getopts ":p:t:s:" opt; do
@@ -41,9 +41,11 @@ for service in ${ARR[@]}; do
     SERVICES_PATHS+=("worker")
   elif [[ $service == "client" ]] ; then
     SERVICES_PATHS+=("client")
+  elif [[ $service == "cleaner" ]] ; then
+    SERVICES_PATHS+=("cleaner")
   else
     echo "Error: invalid service found in value provided for -s flag: "$service""
-    echo "  Value should be a comma separated list of the following services : api, worker or client"
+    echo "  Value should be a comma separated list of the following services : api, worker, client or client"
     echo "  Ex: -s api,worker"
     exit 1
   fi
