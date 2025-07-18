@@ -1,0 +1,16 @@
+auth:
+  enabled: true
+  password: "sup3r_s3cur3_passw0rd"
+
+architecture: standalone
+
+master:
+  persistence:
+    enabled: true
+    size: 1Gi
+
+replica:
+  replicaCount: 0
+
+tls:
+  enabled: false
