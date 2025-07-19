@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+clientVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ include "client.name" . }}
+  labels:
+    {{- include "client.labels" . | nindent 4 }}
+spec:
+  rules:
+    {{- range .Values.ingress.hosts }}
+    - host: {{ .host | quote }}
+      http:
+        paths:
+          {{- range .paths }}
+          - path: {{ .path }}
+            {{- with .pathType }}
+            pathType: {{ . }}
+            {{- end }}
+            backend:
+              service:
+                name: {{ include "client.name" $ }}
+                port:
+                  number: {{ $.Values.service.port }}
+          {{- end }}
+    {{- end }}

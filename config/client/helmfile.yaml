@@ -1,0 +1,6 @@
+releases:
+  - name: client
+    namespace: app
+    chart: ../charts/client
+    version: 0.1.0
+    createNamespace: true
