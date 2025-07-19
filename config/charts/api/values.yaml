@@ -1,0 +1,23 @@
+replicaCount: 1
+
+image:
+  tag: "v0.1.0"
+
+containerPort: 8000
+
+env: {}
+
+podLabels: {}
+
+service:
+  type: ClusterIP
+  port: 80
+
+ingress:
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+  hosts:
+    - host: task-manager.com
+      paths:
+        - path: /api(/|$)(.*)
+          pathType: ImplementationSpecific
