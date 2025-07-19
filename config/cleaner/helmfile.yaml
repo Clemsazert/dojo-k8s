@@ -1,0 +1,8 @@
+releases:
+  - name: cleaner
+    namespace: app
+    chart: ../charts/cleaner
+    version: 0.1.0
+    createNamespace: true
+    values:
+      - values.yaml

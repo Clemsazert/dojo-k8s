@@ -1,0 +1,8 @@
+releases:
+  - name: worker
+    namespace: app
+    chart: ../charts/worker
+    version: 0.1.0
+    createNamespace: true
+    values:
+      - values.yaml
