@@ -6,8 +6,7 @@ export const logger = createLogger({
     format.timestamp(),
     format.json(),
     format.errors({ stack: true }), // Ref.: https://stackoverflow.com/a/58475687
-    format.prettyPrint(),
   ),
-  defaultMeta: { service: 'api' },
-  transports: [new transports.Console({ format: format.simple(), level: 'info' })],
+  defaultMeta: { service: 'worker' },
+  transports: [new transports.Console({ level: 'info' })],
 });
