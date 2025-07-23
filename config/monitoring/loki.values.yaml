@@ -1,2 +1,24 @@
 grafana:
   enabled: false
+
+promtail:
+  config:
+    snippets:
+      pipelineStages:
+        - json:
+            expressions:
+              log: log
+        - json:
+            source: log
+            expressions:
+              level: level
+              service: service
+              message: message
+        - timestamp:
+            source: timestamp
+            format: RFC3339
+        - labels:
+            level:
+            service:
+        - output:
+            source: message
