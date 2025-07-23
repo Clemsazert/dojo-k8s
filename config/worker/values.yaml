@@ -3,3 +3,6 @@ env:
   REDIS_PASSWORD: "sup3r_s3cur3_passw0rd"
   REDIS_HOST: "redis-master.redis"
   REDIS_PORT: "6379"
+
+image:
+  tag: v0.3.0

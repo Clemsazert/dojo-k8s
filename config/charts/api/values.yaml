@@ -1,7 +1,7 @@
 replicaCount: 1
 
 image:
-  tag: "v0.1.0"
+  tag: v.0.0.0
 
 containerPort: 8000
 

@@ -4,3 +4,5 @@ releases:
     chart: ../charts/client
     version: 0.1.0
     createNamespace: true
+    values:
+      - values.yaml
